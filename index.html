@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Comer nunca?" />
+    <meta name="description" content="Alerta da hora de comer!" />
+    <meta property="og:image" content="assets/macarron.jpg" />
     <link rel="stylesheet" href="assets/style.css">
     <title>Comer nunca?</title>
 </head>
@@ -32,7 +35,7 @@
             const minutoAtual = new Date().getMinutes()
             const segundoAtual = new Date().getSeconds()
             var horaFinal = 11
-            var minutoFinal = 40
+            var minutoFinal = 0
 
             console.log(`${horaAtual}:${minutoAtual}`)
             
@@ -56,7 +59,7 @@
                 if (minutoAtual > minutoFinal) {
                     minutoFinal += 60
                 }
-                subtitleEl.innerHTML = `Faltam ${horaFinal - horaAtual} horas, ${minutoFinal - minutoAtual - 1} minutos e ${60 - segundoAtual - 1} segundos`
+                subtitleEl.innerHTML = `Faltam ${horaFinal - horaAtual - 1} horas, ${minutoFinal - minutoAtual - 1} minutos e ${60 - segundoAtual - 1} segundos`
             }
 
         }
