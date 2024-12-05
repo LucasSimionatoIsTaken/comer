@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <title>Comer nunca?</title>
+</head>
+<body>
+    <main>
+            <h1>COMER NUNCA</h1>
+            <h2 class="display-none">minutos para comer</h2>
+            <button id="start">Clique para iniciar</button>
+    </main>
+
+    <script>
+        const titleEl = document.querySelector("h1")
+        const subtitleEl = document.querySelector("h2")
+        const startBtn = document.querySelector("#start")
+
+        var audio = new Audio("assets/audio.m4a")
+
+        startBtn.addEventListener("click", () => {
+            setInterval(() => comer(), 1000)
+            comer()
+            startBtn.classList.add("display-none")
+            subtitleEl.classList.remove("display-none")
+        })
+
+        function comer() {
+            const horaAtual = new Date().getHours()
+            const minutoAtual = new Date().getMinutes()
+            const segundoAtual = new Date().getSeconds()
+            var horaFinal = 11
+            var minutoFinal = 40
+
+            console.log(`${horaAtual}:${minutoAtual}`)
+            
+            if (
+                horaAtual == horaFinal && 
+                minutoAtual >= minutoFinal && minutoAtual <= minutoFinal + 5)
+            {
+                subtitleEl.innerHTML = "Deu a hora"
+
+                if(audio.paused) {
+                    audio.play()
+                }
+            } 
+            else {
+                if(!audio.paused) {
+                    audio.pause()
+                }
+                if (horaAtual > horaFinal) {
+                    horaFinal += 24
+                }
+                if (minutoAtual > minutoFinal) {
+                    minutoFinal += 60
+                }
+                subtitleEl.innerHTML = `Faltam ${horaFinal - horaAtual} horas, ${minutoFinal - minutoAtual - 1} minutos e ${60 - segundoAtual - 1} segundos`
+            }
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.display-none{
+    display: none !important;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0,0,0,.5);
+
+    /* height: 100vh; */
+}
+
+h1,
+h2,
+button{
+    text-align: center;
+}
+
+h1,
+h2{
+    color: white;
+}
+
+h1{
+    font-size: 60px;
+}
+h2{
+    font-size: 40px;
+}
+
+button{
+    width: 300px;
+}
+
+main{
+}
+
+body{
+    background-image: url("macarron.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
